@@ -5,7 +5,10 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"os"
 	"time"
+
+	"github.com/rs/zerolog/log"
 )
 
 func NewOneClient(host, token string) *ClientOnec {
@@ -24,12 +27,15 @@ type ClientOnec struct {
 //http://10.51.0.10:19201/sm1/hs/ - host
 
 func (c *ClientOnec) Request(method, path string, body io.Reader) (io.ReadCloser, error) {
-	req, err := http.NewRequest(method, c.Host+path, body)
+	full := c.Host + path
+	log.Info().Str("method", method).Str("path", path).Str("full", full).Msg("request to 1c server")
+
+	req, err := http.NewRequest(method, full, body)
 	if err != nil {
 		return nil, fmt.Errorf("cant create new once request %w", err)
 	}
-
 	req.Header.Set("Authorization", "Basic "+c.Token)
+	req.Header.Write(os.Stdout)
 
 	resp, err := c.hc.Do(req)
 	if err != nil {
