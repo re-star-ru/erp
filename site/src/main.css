@@ -2,37 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Заголовки — плотный Montserrat с поджатым трекингом */
+  h1, h2, h3 {
+    @apply font-display tracking-tight;
+  }
 }
 
 @layer components {
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600
+           text-gray-900 font-bold py-3 px-6 rounded-xl
+           shadow-sm transition-colors duration-150 text-center
+           focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2;
+  }
+
+  .btn-dark {
+    @apply bg-gray-900 hover:bg-gray-700 active:bg-gray-800
+           text-white font-bold py-3 px-6 rounded-xl
+           shadow-sm transition-colors duration-150 text-center
+           focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2;
+  }
+
+  .btn-ghost {
+    @apply border-2 border-gray-200 hover:border-gray-400
+           text-gray-600 hover:text-gray-900 font-semibold
+           py-3 px-6 rounded-xl transition-colors duration-150 text-center
+           focus:outline-none;
+  }
+
+  /* Кнопка для тёмного фона (hero) — тёмная подложка с размытием для читаемости */
+  .btn-ghost-light {
+    @apply bg-gray-900/50 backdrop-blur-sm border border-white/50
+           hover:bg-gray-900/70 hover:border-white
+           text-white font-semibold py-3 px-6 rounded-xl
+           transition-colors duration-150 text-center
+           focus:outline-none;
+  }
+
+  .btn-whatsapp {
+    @apply bg-green-500 hover:bg-green-600 active:bg-green-700
+           text-white font-bold py-3 px-6 rounded-xl
+           shadow-sm transition-colors duration-150 text-center
+           focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2;
+  }
+
+  /* Cards */
+  .service-card {
+    @apply bg-white border border-gray-100 rounded-2xl p-8
+           shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+
+  .service-icon {
+    @apply w-14 h-14 bg-yellow-100 text-yellow-600 rounded-2xl
+           flex items-center justify-center mb-5;
+  }
+
+  .review-card {
+    @apply bg-white rounded-2xl p-6 shadow-sm flex flex-col;
+  }
+
+  /* Legacy button (catalog cards etc) */
   .button {
-    @apply bg-gray-600
-    text-gray-100
-    p-3
-    shadow-xl
-    rounded-lg
-    hover:bg-opacity-60
-    transition
-    uppercase
-    focus:outline-none
-    font-bold;
-  }
-}
-
-/* pagination */
-
-@layer components {
-  .pagination {
-    @apply flex justify-center;
-  }
-
-  .pagination__item {
-    @apply px-5 py-3 text-gray-600 bg-white border border-r-0 border-gray-600 hover:bg-gray-100;
-  }
-
-  .pagination__item.current {
-    @apply bg-gray-400;
+    @apply bg-gray-700 hover:bg-gray-600 text-gray-100
+           p-3 shadow-xl rounded-lg transition uppercase
+           focus:outline-none font-bold;
   }
 }

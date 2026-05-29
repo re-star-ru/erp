@@ -4,9 +4,9 @@
       "@context": "https://schema.org",
       "@type": "AutoRepair",
       "name": "РЕСТАР Стартеры Генераторы Пятигорск",
-      "description": "СТО в Пятигорске, КМВ, по ремонту стартеров генераторов, а так же проточке тормозных дисков и продаже комплктующх",
+      "description": "СТО в Пятигорске по ремонту стартеров и генераторов, проточке тормозных дисков и продаже запчастей",
       "currenciesAccepted": "RUB",
-      "openingHours": "9:00-16:00",
+      "openingHours": "Mo-Su 09:00-17:00",
       "paymentAccepted": "Cash, Credit Card",
       "url": "https://re-star.ru",
       "address": {
@@ -14,242 +14,339 @@
         "addressLocality": "Пятигорск",
         "addressRegion": "Ставропольский край",
         "postalCode": "357560",
-        "streetAddress": "Территория Автогид КМВулица Ремонтная, 1, Пятигорск, Казачий рынок, Ставропольский край"
+        "streetAddress": "Казачий рынок, ул. Ремонтная, 1"
       },
       "geo": {
         "@type": "GeoCoordinates",
         "latitude": "44.022231",
         "longitude": "43.127628"
       },
-      "email": "mailto:re-star@mail.ru",
       "telephone": "+79283222555",
-      "slogan": "Починим ваш стартер или генератор"
+      "image": "https://re-star.ru/generators/1.jpeg",
+      "priceRange": "₽₽",
+      "slogan": "Починим ваш стартер или генератор",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "bestRating": "5",
+        "ratingCount": "145",
+        "reviewCount": "82"
+      }
     }
   </script>
-
+  <link rel="preload" as="image" href="/generators/1.jpeg" />
   <link rel="preload" as="image" href="/logo.svg" />
 {{ end }}
 
 {{ define "main" }}
-  <main class="container text-center mx-auto h-screen pt-8 py-4 sm:pt-40">
-    <div class="py-4">
-      <a href="/">
-        <img class="inline w-48" src="logo.svg" alt="РЕСТАР" />
-      </a>
-      <h1 class="text-4xl font-bold py-8">Стартеры Генераторы</h1>
-      <h2 class="text-xl">СТО</h2>
-    </div>
 
-    <div class="py-4 mb-8">
-      <h2 class="text-base font-bold uppercase">
-        ремонтируем стартеры генераторы
-      </h2>
-      <h2 class="text-base font-bold uppercase mb-4">
-        сделаем проточку тормозных дисков
-      </h2>
-      <div class="text-gray-500">работаем в Пятигорске с 2004</div>
-    </div>
+{{/* ── HERO ─────────────────────────────────────────────── */}}
+<section
+  class="relative min-h-screen flex flex-col items-center justify-center text-center px-4 py-24 bg-cover bg-center"
+  style="background-image: url('/generators/1.jpeg')"
+>
+  {{/* затемнение фото */}}
+  <div class="absolute inset-0 bg-gradient-to-b from-gray-900/80 via-gray-900/70 to-gray-900/85"></div>
 
-    <div class="py-4 max-w-xs mx-auto flex flex-col gap-4">
-      <a href="tel:+79283222555" class="button"> Позвонить 📱 </a>
-      <button id="toMap" class="button">Проехать 🚗</button>
-      <button id="toContact" class="button">Написать 📧</button>
-      <a href="/catalog/" class="bg-yellow-400 text-black button">
-        Комплектующие 🔎</a
-      >
-    </div>
-  </main>
+  <div class="relative z-10 flex flex-col items-center">
+    <span class="inline-block bg-yellow-400 text-gray-900 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6">
+      СТО в Пятигорске · с 2004 года
+    </span>
 
-  {{/* Перечисление преимуществ */}}
+    <h1 class="text-5xl sm:text-6xl font-black text-white leading-tight mb-4 drop-shadow">
+      Ремонт стартеров<br class="sm:hidden" /> и генераторов
+    </h1>
 
+    <p class="text-lg text-gray-200 max-w-md mb-6">
+      Не заводится, щёлкает стартер или пропала зарядка?<br class="hidden sm:block" />
+      Найдём причину и отремонтируем — на любые марки авто.
+    </p>
 
-  <!-- отзывы клиентов -->
-  <section class="container mx-auto bg-gray-600 rounded-xl p-4 mb-4">
-    <h2 class="pb-4 text-center text-xl font-bold text-yellow-400">
-      Отзывы клиентов
-    </h2>
-
-    <div class="w-full h-80 flex flex-nowrap overflow-hidden gap-4">
-      {{/* <div class="flex-none w-60 bg-gray-100 rounded-lg p-4">
-        <div>Имя</div>
-        <div>Дата</div>
-        <div>Оценка</div>
-        <div>Отзыв</div>
-        </div>
-      */}}
-
-
-      <div class="flex-none w-60 bg-gray-100 rounded-lg p-4">
-        <h3>Иван Лукашевич</h3>
-        <div>2 месяца назад</div>
-        <div>⭐⭐⭐⭐⭐</div>
-        <div>
-          Довольно быстро отремонтировали генератор, по деньгам относительно не
-          дёшево, но большая часть - стоимость запчастей, за работу ценник
-          вполне адекватный.
-        </div>
-      </div>
-
-      <div class="flex-none w-60 bg-gray-100 rounded-lg p-4">
-        <h3>Serg Pupkov</h3>
-        <div>5 месяцев назад</div>
-        <div>⭐⭐⭐⭐⭐</div>
-        <div>
-          Очень хороший сервис. Работают грамотные специалисты. Очень
-          понравилось обслуживание. Все сделали быстро и на высоком уровне.
-          Ребята спасибо вам за быстрый ремонт.
-        </div>
-      </div>
-
-      <div class="flex-none w-60 bg-gray-100 rounded-lg p-4">
-        <h3>Глеб Семенов</h3>
-        <div>8 месяцев назад</div>
-        <div>⭐⭐⭐⭐⭐</div>
-        <div>
-          Очень квалифицированные ребята... Быстро нашли проблему в генераторе и
-          устранили)) Рекомендую! Chevrolet Tahoe 2017
-        </div>
-      </div>
-    </div>
-    <div class="text-center text-gray-100">.....</div>
+    {{/* социальный пруф */}}
     <a
-      href="https://g.page/r/CS64wNdys3OhEAg/review"
-      class="bg-yellow-400 p-3 border-4 border-gray-600 shadow-xl rounded-lg transition focus:outline-none text-lg font-bold block w-60 mx-auto text-center mb-4"
-      >Оставьте свой отзыв!</a
+      href="https://yandex.ru/profile/1102791185"
+      target="_blank" rel="noopener"
+      class="inline-flex items-center gap-2 mb-8 text-white/90 hover:text-white transition-colors"
     >
-  </section>
+      <span class="text-yellow-400 text-lg tracking-tight">★★★★★</span>
+      <span class="text-sm font-medium border-b border-white/30">5,0 · 82 отзыва на Яндексе</span>
+    </a>
 
-  <!-- галерея -->
-  <div class="grid gap-1 grid-cols-1 md:grid-cols-3 mb-12">
-    {{ range (readDir "./static/generators") }}
-      {{ delimit (slice "/generators"
-        .Name) "/" | partial "gallery/item.html"
-      }}
-    {{ end }}
-    {{ range (readDir "./static/brake-disks") }}
-      {{ delimit (slice "/brake-disks" .Name) "/" |
-        partial "gallery/item.html"
-      }}
-    {{ end }}
+    {{/* главный CTA */}}
+    <a href="tel:+79283222555" class="btn-primary text-lg py-4 px-10 shadow-lg w-full max-w-xs sm:w-auto">
+      Позвонить 8 (928) 322-25-55
+    </a>
+
+    {{/* вторичные действия */}}
+    <div class="flex flex-col sm:flex-row gap-3 mt-3 w-full max-w-xs sm:max-w-none sm:w-auto">
+      <a href="https://wa.me/+79283222555" target="_blank" rel="noopener" class="btn-ghost-light flex-1 text-base">
+        Написать в WhatsApp
+      </a>
+      <a href="#map" class="btn-ghost-light flex-1 text-base">
+        Как проехать
+      </a>
+    </div>
+
+    {{/* буллеты доверия */}}
+    <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-10 text-sm text-gray-200">
+      <span class="inline-flex items-center gap-1.5">
+        <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"/></svg>
+        20+ лет опыта
+      </span>
+      <span class="inline-flex items-center gap-1.5">
+        <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"/></svg>
+        Любые марки авто
+      </span>
+      <span class="inline-flex items-center gap-1.5">
+        <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"/></svg>
+        {{/* TODO: укажите реальный срок гарантии, напр. «Гарантия 1 год» */}}
+        Гарантия на ремонт
+      </span>
+    </div>
   </div>
 
-  <!-- map -->
-  <div id="map" class="container mx-auto mb-12">
-    <iframe
-      title="Место Ре-Стар на карте"
-      class="h-screen w-full rounded-xl"
-      style="border:0"
-      referrerpolicy="no-referrer-when-downgrade"
-      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBLeJVJhCtfVPmDJ-9h_6htpcWRBnVBHmM&q=Стартеры+Генераторы+Пятигорск"
-      allowfullscreen
-      loading="lazy"
-    >
-    </iframe>
-  </div>
+  <a href="#services" class="hidden sm:block absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/50 hover:text-white transition-colors" aria-label="Прокрутить вниз">
+    <svg class="w-7 h-7 animate-bounce" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+    </svg>
+  </a>
+</section>
 
-  <!-- контакты -->
-  <section id="key" class="container mx-auto overflow-hidden mb-12">
-    <div class="bg-yellow-400 mx-auto text-center max-w-2xl p-4 rounded-xl">
-      <h3 class="text-3xl font-bold mb-4">Контакты</h3>
-      <div class="mb-4">
-        <a class="underline text-xl" href="https://g.page/r/CS64wNdys3OhEAE">
-          Узнайте о предложениях компании "Стартеры Генераторы Пятигорск" в
-          Google</a
-        >
+{{/* ── STATS / ПОЛОСА ДОВЕРИЯ ───────────────────────────── */}}
+<section class="bg-yellow-400">
+  <div class="max-w-5xl mx-auto px-4 py-8 grid grid-cols-3 divide-x divide-yellow-500/40 text-center">
+    <div>
+      <div class="text-3xl sm:text-4xl font-black font-display text-gray-900">20+</div>
+      <div class="text-xs sm:text-sm font-medium text-gray-800 mt-1">лет на рынке</div>
+    </div>
+    <div>
+      <div class="text-3xl sm:text-4xl font-black font-display text-gray-900">5,0★</div>
+      <div class="text-xs sm:text-sm font-medium text-gray-800 mt-1">рейтинг на Яндексе</div>
+    </div>
+    <div>
+      <div class="text-3xl sm:text-4xl font-black font-display text-gray-900">145</div>
+      <div class="text-xs sm:text-sm font-medium text-gray-800 mt-1">оценок клиентов</div>
+    </div>
+  </div>
+</section>
+
+{{/* ── SERVICES ─────────────────────────────────────────── */}}
+<section id="services" class="py-20 bg-white scroll-mt-16">
+  <div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-3xl font-extrabold text-center text-gray-900 mb-3">Что ремонтируем</h2>
+    <p class="text-center text-gray-500 mb-12">Автоэлектрика — наш профиль уже больше 20 лет</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-2">Ремонт стартеров</h3>
+        <p class="text-gray-500 leading-relaxed">Стартер щёлкает, крутит вяло или не реагирует на ключ? Найдём причину и заменим щётки, бендикс, втягивающее реле. На любые марки, с гарантией.</p>
       </div>
 
-      <div class="flex flex-col md:flex-row place-content-center">
-        <div class="p-4 text-left">
-          <div>
-            <h6 class="text-xl font-bold mb-4">
-              Адрес: Пятигорск, Казачий рынок,
-              <a
-                href="https://g.page/r/CS64wNdys3OhEAE"
-                class="underline text-gray-600"
-                >подробнее</a
-              >
-            </h6>
-
-            <p class="text-xl font-bold mb-4">Телефон: 8(928)3-222-555</p>
-
-            <h6 class="text-xl font-bold">График:</h6>
-
-            <p class="font-bold">Понедельник-Воскресенье: 9.00-17.00</p>
-          </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/>
+          </svg>
         </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-2">Ремонт генераторов</h3>
+        <p class="text-gray-500 leading-relaxed">Горит лампа аккумулятора, пропала зарядка или свистит ремень? Ремонтируем диодные мосты, реле-регуляторы, щётки и подшипники, делаем перемотку обмоток.</p>
+      </div>
 
+      <div class="service-card">
+        <div class="service-icon">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9"/>
+            <circle cx="12" cy="12" r="3"/>
+            <path stroke-linecap="round" d="M12 3v1m0 16v1M3 12h1m16 0h1"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-2">Проточка дисков</h3>
+        <p class="text-gray-500 leading-relaxed">Руль и педаль вибрируют при торможении? Проточим тормозные диски на станке без снятия с авто — уберём биение, вибрацию и скрип.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{{/* ── PROCESS / КАК МЫ РАБОТАЕМ ────────────────────────── */}}
+<section class="py-20 bg-gray-50">
+  <div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-3xl font-extrabold text-center text-gray-900 mb-3">Как мы работаем</h2>
+    <p class="text-center text-gray-500 mb-12">Прозрачно и без сюрпризов по цене</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <div class="text-center">
+        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-yellow-400 text-gray-900 font-black font-display flex items-center justify-center text-lg">1</div>
+        <h3 class="font-bold text-gray-900 mb-1">Диагностика</h3>
+        <p class="text-sm text-gray-500 leading-relaxed">Быстро находим причину неисправности стартера или генератора.</p>
+      </div>
+
+      <div class="text-center">
+        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-yellow-400 text-gray-900 font-black font-display flex items-center justify-center text-lg">2</div>
+        <h3 class="font-bold text-gray-900 mb-1">Согласуем цену</h3>
+        <p class="text-sm text-gray-500 leading-relaxed">Называем стоимость заранее. Без работ без вашего согласия.</p>
+      </div>
+
+      <div class="text-center">
+        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-yellow-400 text-gray-900 font-black font-display flex items-center justify-center text-lg">3</div>
+        <h3 class="font-bold text-gray-900 mb-1">Ремонт</h3>
+        <p class="text-sm text-gray-500 leading-relaxed">Чиним и присылаем отчёты по работам прямо в WhatsApp.</p>
+      </div>
+
+      <div class="text-center">
+        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-yellow-400 text-gray-900 font-black font-display flex items-center justify-center text-lg">4</div>
+        <h3 class="font-bold text-gray-900 mb-1">Гарантия</h3>
+        <p class="text-sm text-gray-500 leading-relaxed">Отдаём готовую деталь и даём гарантию на выполненный ремонт.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{{/* ── REVIEWS ──────────────────────────────────────────── */}}
+<section class="py-20 bg-white">
+  <div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-3xl font-extrabold text-center text-gray-900 mb-3">Отзывы клиентов</h2>
+    <p class="text-center text-gray-500 mb-12">
+      Рейтинг <span class="font-semibold text-gray-700">5,0</span> на Яндексе · 145 оценок
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <div class="review-card">
+        <div class="text-yellow-400 text-xl mb-3 tracking-tight">★★★★★</div>
+        <p class="text-gray-600 leading-relaxed flex-1 mb-5">
+          «Профессионально, качественно, недорого. Отчёты по работам присылают в WhatsApp. Демонтаж генератора сделали мастерски, прилично сэкономил на ремонте.»
+        </p>
         <div>
-          <a
-            href="https://wa.me/+79283222555"
-            class="bg-green-500 p-3 shadow-xl rounded-lg transition focus:outline-none text-lg font-bold block mx-auto mb-4"
-            >Пишите нам в WhatsApp!</a
-          >
-
-          <form
-            class="flex flex-col text-left bg-gray-100 py-2 px-4 rounded-md shadow-2xl"
-          >
-            <h5 class="text-xl font-bold">E-Mail</h5>
-
-            Ваше имя
-            <input
-              class="border-2 border-black p-1 rounded-md"
-              type="text"
-              name=""
-              id=""
-            />
-
-            Ваш электроящик
-            <input
-              class="border-2 border-black p-1 rounded-md"
-              type="text"
-              name=""
-              id=""
-            />
-
-            Номер телефона
-            <input
-              class="border-2 border-black p-1 rounded-md"
-              type="text"
-              name=""
-              id=""
-            />
-
-            Введите сообщение
-            <textarea
-              class="border-2 border-black mb-4 p-1 rounded-md"
-              rows="5"
-            ></textarea>
-
-            <button
-              class="bg-gray-600 text-gray-100 p-3 shadow-xl rounded-lg hover:bg-opacity-60 transition uppercase focus:outline-none"
-            >
-              Отправить
-            </button>
-          </form>
+          <div class="font-semibold text-gray-900 text-sm">Vlad</div>
+          <div class="text-xs text-gray-500 mt-0.5">Яндекс · июль 2024</div>
         </div>
+      </div>
+
+      <div class="review-card">
+        <div class="text-yellow-400 text-xl mb-3 tracking-tight">★★★★★</div>
+        <p class="text-gray-600 leading-relaxed flex-1 mb-5">
+          «Работают профессионалы своего дела. Всё быстро и качественно, запчасти в наличии.»
+        </p>
+        <div>
+          <div class="font-semibold text-gray-900 text-sm">яблоко персик</div>
+          <div class="text-xs text-gray-500 mt-0.5">Яндекс · декабрь 2024</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="text-yellow-400 text-xl mb-3 tracking-tight">★★★★★</div>
+        <p class="text-gray-600 leading-relaxed flex-1 mb-5">
+          «Огромное спасибо Роману и его команде. Очень быстро и качественно устранили неполадку, помогли даже вне рабочего времени. Высокий уровень профессионализма!»
+        </p>
+        <div>
+          <div class="font-semibold text-gray-900 text-sm">Татьяна Морозова</div>
+          <div class="text-xs text-gray-500 mt-0.5">Яндекс · апрель 2025</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-10">
+      <a
+        href="https://yandex.ru/profile/1102791185"
+        class="btn-primary inline-block"
+        target="_blank" rel="noopener"
+      >
+        Все отзывы и оставить свой
+      </a>
+    </div>
+  </div>
+</section>
+
+{{/* ── GALLERY ──────────────────────────────────────────── */}}
+<section class="py-20 bg-gray-50">
+  <div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-3xl font-extrabold text-center text-gray-900 mb-3">Наши работы</h2>
+    <p class="text-center text-gray-500 mb-12">Реальные фото нашего сервиса, склада и выполненных работ</p>
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-1">
+    {{ range first 4 (readDir "./static/generators") }}
+      {{ delimit (slice "/generators" .Name) "/" | partial "gallery/item.html" }}
+    {{ end }}
+    {{ range first 4 (readDir "./static/brake-disks") }}
+      {{ delimit (slice "/brake-disks" .Name) "/" | partial "gallery/item.html" }}
+    {{ end }}
+  </div>
+</section>
+
+{{/* ── CONTACTS ─────────────────────────────────────────── */}}
+<section class="bg-gray-900 py-20" id="contacts">
+  <div class="max-w-3xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-extrabold text-white mb-2">Свяжитесь с нами</h2>
+    <p class="text-gray-400 mb-10">Позвоните или напишите в WhatsApp — ответим быстро и сориентируем по цене</p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+      <a href="tel:+79283222555" class="btn-primary text-lg py-4 px-8">
+        Позвонить
+      </a>
+      <a href="https://wa.me/+79283222555" class="btn-whatsapp text-lg py-4 px-8" target="_blank" rel="noopener">
+        Написать в WhatsApp
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm">
+      <div class="bg-gray-800 rounded-2xl p-5">
+        <div class="text-yellow-400 font-semibold mb-1 text-xs uppercase tracking-wider">Адрес</div>
+        <div class="text-gray-200 leading-snug">Пятигорск<br />Казачий рынок, ул. Ремонтная, 1</div>
+      </div>
+      <div class="bg-gray-800 rounded-2xl p-5">
+        <div class="text-yellow-400 font-semibold mb-1 text-xs uppercase tracking-wider">Телефон</div>
+        <a href="tel:+79283222555" class="text-gray-200 hover:text-white transition-colors">
+          8 (928) 322-25-55
+        </a>
+      </div>
+      <div class="bg-gray-800 rounded-2xl p-5">
+        <div class="text-yellow-400 font-semibold mb-1 text-xs uppercase tracking-wider">График</div>
+        <div class="text-gray-200">Пн–Вс: 9:00 – 17:00</div>
       </div>
     </div>
-  </section>
 
-  <script>
-    toContact.addEventListener("click", (e) => {
-      key.scrollIntoView({
-        block: "start",
-        inline: "nearest",
-        behavior: "smooth",
-      })
-    })
-
-    toMap.addEventListener("click", (e) => {
-      map.scrollIntoView({
-        block: "start",
-        inline: "nearest",
-        behavior: "smooth",
-      })
-    })
-  </script>
-
-  <div class="text-center">
-    <a class="underline text-blue-400 text-xl" href="/terms">оферта</a>
   </div>
+</section>
+
+{{/* ── MAP ──────────────────────────────────────────────── */}}
+<section class="pt-20 bg-white scroll-mt-16" id="map">
+  <div class="max-w-5xl mx-auto px-4 mb-8 text-center">
+    <h2 class="text-3xl font-extrabold text-gray-900 mb-3">Как нас найти</h2>
+    <p class="text-gray-500 max-w-xl mx-auto mb-6">
+      Пятигорск, Казачий рынок, ул. Ремонтная, 1 — заезд через территорию «Автогид КМВ».
+      Не нашли? Позвоните, подскажем дорогу.
+    </p>
+    <a
+      href="https://yandex.ru/maps/?rtext=~44.022231,43.127628&rtt=auto"
+      target="_blank" rel="noopener"
+      class="btn-dark inline-flex items-center gap-2"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/>
+      </svg>
+      Построить маршрут
+    </a>
+  </div>
+  <iframe
+    title="Место Ре-Стар на карте"
+    class="w-full block"
+    style="height: 600px; border: 0"
+    referrerpolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBLeJVJhCtfVPmDJ-9h_6htpcWRBnVBHmM&q=Стартеры+Генераторы+Пятигорск"
+    allowfullscreen
+    loading="lazy"
+  ></iframe>
+</section>
+
 {{ end }}

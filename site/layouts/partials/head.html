@@ -1,26 +1,49 @@
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Стартеры и генераторы для любых автомобилей: в СТО РЕСТАР мы ремонтируем стартеры и генераторы на любые автомобиле, продаем комплектующие а так же производим проточку тормозных дисков" />
+<meta name="theme-color" content="#facc15" />
 
-<link rel="icon" href="https://re-star.ru/favicon.svg" >
+{{ $desc := .Description | default "СТО РЕСТАР в Пятигорске: ремонт стартеров и генераторов на любые автомобили, проточка тормозных дисков, продажа запчастей. Работаем с 2004 года." }}
+{{ $ogimage := "https://re-star.ru/generators/1.jpeg" }}
+<meta name="description" content="{{ $desc }}" />
+<link rel="canonical" href="{{ .Permalink }}" />
 
-<title>{{.Title}}</title>
+{{/* локальное SEO */}}
+<meta name="geo.region" content="RU-STA" />
+<meta name="geo.placename" content="Пятигорск" />
+<meta name="geo.position" content="44.022231;43.127628" />
+<meta name="ICBM" content="44.022231, 43.127628" />
+
+{{/* Open Graph */}}
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="РЕСТАР — Стартеры и Генераторы" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:title" content="{{ .Title }}" />
+<meta property="og:description" content="{{ $desc }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:image" content="{{ $ogimage }}" />
+
+{{/* Twitter Card */}}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ .Title }}" />
+<meta name="twitter:description" content="{{ $desc }}" />
+<meta name="twitter:image" content="{{ $ogimage }}" />
+
+<link rel="icon" href="https://re-star.ru/favicon.svg" />
+<title>{{ .Title }}</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" />
 
 {{ $styles := resources.Get "css/main.css" }}
-
-{{ if .Site.IsServer }}
-  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
+{{ if hugo.IsServer }}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
 {{ else }}
-  {{ $styles := $styles | minify | fingerprint | resources.PostProcess }}
-  <link
-    rel="stylesheet"
-    href="{{ $styles.RelPermalink }}"
-    integrity="{{ $styles.Data.Integrity }}"
-  />
+{{ $styles = $styles | minify | fingerprint | resources.PostProcess }}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" />
 {{ end }}
-{{/*  if site is server, include metrics   */}}
-{{ if .Site.IsServer }}
-{{ else }}
+
+{{ if not hugo.IsServer }}
   {{ partial "scripts/yandex-metrica" . }}
   {{ partial "scripts/google-anal.html" . }}
 {{ end }}
-

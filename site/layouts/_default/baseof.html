@@ -4,8 +4,10 @@
     {{ partial "head.html" . }}
     {{ block "scripts" . }}{{ end }}
   </head>
-  <body class="bg-gray-50">
+  <body class="bg-white font-sans antialiased text-gray-900 pb-16 sm:pb-0">
+    {{ partial "header.html" . }}
     {{ block "main" . }}{{ end }}
     {{ partial "footer.html" . }}
+    {{ partial "call-fab.html" . }}
   </body>
 </html>

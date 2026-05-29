@@ -1,2 +1,6 @@
 User-agent: *
-Disallow: /*.jpeg
+Allow: /
+Disallow: /catalog/
+
+Sitemap: {{ "sitemap.xml" | absURL }}
+Host: {{ site.BaseURL }}
